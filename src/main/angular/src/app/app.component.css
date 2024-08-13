@@ -1,0 +1,44 @@
+main {
+  width: 100%;
+  max-width: 50rem;
+  min-width: 1200px;
+  margin: 2.5rem auto;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: 4rem auto;
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background-color: #433352;
+  color: #c3b3d1;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  min-width: 10rem;
+  text-align: left;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+a:hover,
+a:active,
+.selected {
+  background-color: #9965dd;
+  color: #150722;
+}
+
+div {
+  border-radius: 6px;
+}

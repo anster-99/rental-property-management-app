@@ -1,0 +1,52 @@
+<form (ngSubmit)="onSubmit(commentInput.value)" #form="ngForm">
+  <p>
+    <label>Amount</label>
+    <input
+      type="number"
+      id="amount"
+      name="amount"
+      min="0.01"
+      [(ngModel)]="enteredAmount"
+    />
+  </p>
+  <p>
+    <label for="due-date">Date</label>
+    <input type="date" id="date" name="date" [(ngModel)]="enteredDate" />
+  </p>
+  <p>
+    <label>Payment form</label>
+  </p>
+  <div class="radio-group">
+    <div class="radio-item">
+      <input
+        type="radio"
+        id="payment-cash"
+        name="payment"
+        value="cash"
+        [(ngModel)]="paymentForm"
+        required
+      />
+      <label for="payment-cash">Cash</label>
+    </div>
+    <div class="radio-item">
+      <input
+        type="radio"
+        id="payment-bank"
+        name="payment"
+        value="bank"
+        [(ngModel)]="paymentForm"
+        required
+      />
+      <label for="payment-bank">Bank transfer</label>
+    </div>
+  </div>
+
+  <p>
+    <label>Comment</label>
+    <textarea name="comment" id="comment" rows="3" #commentInput></textarea>
+  </p>
+  <p class="actions">
+    <a [routerLink]="['/properties', this.propertyId()]">Cancel</a>
+    <button type="submit" [disabled]="!form.form.valid">Submit</button>
+  </p>
+</form>

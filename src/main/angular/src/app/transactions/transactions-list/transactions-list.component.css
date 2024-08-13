@@ -1,0 +1,53 @@
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 900px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table th,
+table td {
+  padding-top: 0px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+  padding: 10px;
+  min-width: 100px;
+}
+
+table tr {
+  padding: 10px;
+  min-width: 100px;
+}
+
+.in {
+  background-color: #c2d6c1;
+  color: black;
+}
+
+.out {
+  background-color: #f2dded; /*8f79a1 */
+  color: black;
+}
+
+:host {
+  display: contents;
+}
+
+button[type="button"] {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  padding: 0.35rem 1.25rem;
+  border-radius: 4px;
+  background-color: #9c73ca;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+button[type="button"]:hover,
+button[type="button"]:active {
+  background-color: #895cce;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}

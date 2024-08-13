@@ -1,0 +1,30 @@
+<app-filter></app-filter>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Property</th>
+      <th scope="col">Category</th>
+      <th scope="col">Subcategory</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Payment form</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (transaction of transactionService.getTransactionsObservable() | async;
+    track transaction.transactionId) {
+
+    <tr
+      [class.out]="transaction.category === 'out'"
+      [class.in]="transaction.category === 'in'"
+      app-transactions-item
+      [transaction]="transaction"
+    ></tr>
+    }
+  </tbody>
+</table>
+
+<button type="button" (click)="downloadTransactions()">Download file</button>

@@ -1,0 +1,7 @@
+<ul id="properties">
+  @for (property of getProperties(); track property.id) {
+  <li>
+    <app-property [property]="property"></app-property>
+  </li>
+  }
+</ul>

@@ -1,0 +1,68 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="property">Property: </label>
+    <select
+      id="property"
+      formControlName="property"
+      (change)="onPropertyChange()"
+    >
+      <option value="" disabled selected>...</option>
+      @for(p of properties; track p.id) {
+      <option value="{{ p.id }}">{{ p.name }}</option>
+      }
+    </select>
+
+    @if(selectedProperty()) {
+
+    <label for="categories">Category: </label>
+    <select
+      id="categories"
+      formControlName="category"
+      (change)="onCategoryChange()"
+    >
+      <option value="" disabled selected>...</option>
+      @for(c of categories; track c) {
+      <option value="{{ c }}">{{ c === "in" ? "Income" : "Expenses" }}</option>
+      }
+    </select>
+
+    @if(selectedCategory()) {
+
+    <label for="options">Subcategory: </label>
+    <select id="options" formControlName="option">
+      <option value="" disabled selected>...</option>
+      @for(o of options(); track o.id) {
+      <option value="{{ o.id }}">{{ o.name }}</option>
+      }
+    </select>
+
+    } }
+
+    <label for="dateStart">From: </label>
+    <input
+      type="date"
+      id="dateStart"
+      formControlName="dateStart"
+      name="dateStart"
+    />
+
+    <label for="dateAddedEnd">To: </label>
+    <input type="date" id="dateEnd" formControlName="dateEnd" name="dateEnd" />
+
+    <label for="paymentForm">Payment form: </label>
+    <select id="paymentForm" formControlName="paymentForm">
+      <option value="" disabled selected>...</option>
+      <option value="cash">Cash</option>
+      <option value="bank">Bank transfer</option>
+    </select>
+
+    <div
+      style="display: flex; flex-direction: row-reverse; align-items: center"
+    >
+      <button type="button" class="reset-button" (click)="resetFilter()">
+        Reset filter
+      </button>
+      <button type="submit">Apply filter</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+<td>{{ this.transaction.date }}</td>
+<td>
+  {{ this.propertyService.getPropertyById(transaction.propertyId)!.name }}
+</td>
+<td>{{ transaction.category === "in" ? "Income" : "Expense" }}</td>
+<td>
+  {{
+    this.propertyService.getOption(
+      transaction.propertyId,
+      transaction.optionId
+    )!.name
+  }}
+</td>
+<td contenteditable="true" (input)="onAmountChange($event)">
+  {{ transaction.amount | currency : "CAD" }}
+</td>
+<td>{{ transaction.paymentForm === "cash" ? "Cash " : "Bank transfer" }}</td>
+<td contenteditable (input)="onCommentChange($event)">
+  {{ transaction.comment }}
+</td>
+<td>
+  <div class="button-container">
+    @if(transactionModified) {
+    <button class="icon-button" (click)="modify()">
+      <img src="assets/check.png" alt="Save" />
+    </button>
+    }
+
+    <button class="icon-button" (click)="delete()">
+      <img src="assets/trash-bin.png" alt="Удалить" />
+    </button>
+  </div>
+</td>
+<!-- check.png source: https://commons.wikimedia.org/wiki/File:Eo_circle_green_checkmark.svg -->
+<!-- trash-bin.png source: "https://www.flaticon.com/free-icons/trash-can -->
