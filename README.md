@@ -24,14 +24,14 @@ The Rental Property Management App is a web application designed to help users m
 * Download transaction data as CSV files.
 * Simple and intuitive user interface.
 ## Screenshots
-<img width="1907" alt="no-selection" src="https://github.com/user-attachments/assets/f2e1f282-6fe6-48f3-9d66-75fb640bcb72">
-<img width="1906" alt="property" src="https://github.com/user-attachments/assets/8a4faa88-4b08-4984-8c47-7385b771f70c">
-<img width="1907" alt="expenses" src="https://github.com/user-attachments/assets/ab1399c3-2ab6-4a9a-a651-867f4832e641">
-<img width="1908" alt="income" src="https://github.com/user-attachments/assets/643c0d6e-c749-4254-9010-4053cfff6b65">
-<img width="1907" alt="input-form" src="https://github.com/user-attachments/assets/4957594d-27d8-4389-afd3-80acbad36204">
-<img width="1907" alt="transactions-list" src="https://github.com/user-attachments/assets/23ef8c26-6067-4fae-9bb8-e86b52559995">
-<img width="1907" alt="transaction-modify" src="https://github.com/user-attachments/assets/77001edb-132e-49a0-8872-78f5ea6f2291">
-<img width="1907" alt="transactions-list-filter" src="https://github.com/user-attachments/assets/b79d1d8f-68a3-40c2-8c92-c5826c2199c4">
+<img width="975" alt="no-selection" src="https://github.com/user-attachments/assets/fb380163-8575-4523-aea0-14d27be592d1">
+<img width="974" alt="property" src="https://github.com/user-attachments/assets/a748baeb-3cb9-4803-b04b-cdc889ed9760">
+<img width="974" alt="expenses" src="https://github.com/user-attachments/assets/241fa7a7-fc01-42e5-b79d-18aece20febb">
+<img width="974" alt="income" src="https://github.com/user-attachments/assets/71256d15-d4cc-4f56-ad95-7e50f600c35e">
+<img width="977" alt="input-form" src="https://github.com/user-attachments/assets/63376e6a-8adf-4b0b-bf13-8325f6cd362b">
+<img width="974" alt="transactions-list" src="https://github.com/user-attachments/assets/ceea280a-51b3-4f72-afcd-593ea987eda6">
+<img width="975" alt="transaction-modify" src="https://github.com/user-attachments/assets/147127b7-2bd8-4046-b3ee-e991033683a2">
+<img width="975" alt="transactions-list-filter" src="https://github.com/user-attachments/assets/7ba8ed59-4e4f-4f26-ba6d-cc908d5cf442">
 
 ## Limitations
 * This application is not production-ready. It was developed as a learning project during an Angular course.
