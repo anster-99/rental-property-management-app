@@ -1,30 +1,68 @@
 <app-filter></app-filter>
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let transaction">{{ transaction.date }}</td>
+  </ng-container>
 
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Property</th>
-      <th scope="col">Category</th>
-      <th scope="col">Subcategory</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Payment form</th>
-      <th scope="col">Comment</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (transaction of transactionService.transactions$| async; track
-    transaction.transactionId) {
+  <ng-container matColumnDef="property">
+    <th mat-header-cell *matHeaderCellDef>Property</th>
+    <td mat-cell *matCellDef="let transaction">
+      {{ this.propertyService.getPropertyById(transaction.propertyId)!.name }}
+    </td>
+  </ng-container>
 
-    <tr
-      [class.out]="transaction.category === 'out'"
-      [class.in]="transaction.category === 'in'"
-      app-transactions-item
-      [transaction]="transaction"
-    ></tr>
-    }
-  </tbody>
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef>Category</th>
+    <td mat-cell *matCellDef="let transaction">
+      {{ transaction.category === "in" ? "Income" : "Expense" }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="subcategory">
+    <th mat-header-cell *matHeaderCellDef>Subcategory</th>
+    <td mat-cell *matCellDef="let transaction">
+      {{
+        this.propertyService.getOption(
+          transaction.propertyId,
+          transaction.optionId
+        )!.name
+      }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let transaction" contenteditable="true">
+      {{ transaction.amount | currency : "CAD" }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="payment_form">
+    <th mat-header-cell *matHeaderCellDef>Payment Form</th>
+    <td mat-cell *matCellDef="let transaction">
+      {{ transaction.paymentForm }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="comment">
+    <th mat-header-cell *matHeaderCellDef>Comment</th>
+    <td mat-cell *matCellDef="let transaction">{{ transaction.comment }}</td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let transaction">
+      <button class="icon-button" (click)="delete(transaction.transactionId)">
+        <img src="assets/trash-bin.png" alt="Delete" />
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of transactions"
+>
+</mat-paginator>
+<p></p>
 <button type="button" (click)="downloadTransactions()">Download file</button>

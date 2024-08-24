@@ -28,3 +28,6 @@ header h1 {
   letter-spacing: 0.2rem;
   color: #a062ec;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
