@@ -14,8 +14,8 @@
     </tr>
   </thead>
   <tbody>
-    @for (transaction of transactionService.getTransactionsObservable() | async;
-    track transaction.transactionId) {
+    @for (transaction of transactionService.transactions$| async; track
+    transaction.transactionId) {
 
     <tr
       [class.out]="transaction.category === 'out'"

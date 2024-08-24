@@ -28,14 +28,12 @@ export class TransactionsListComponent {
   transactions: Transaction[] = [];
 
   constructor() {
-    const subscription = this.transactionService
-      .getTransactionsObservable()
-      .subscribe({
-        next: (t) => (this.transactions = t),
-        error: (err) => {
-          console.error('Failed to load transactions:', err);
-        },
-      });
+    const subscription = this.transactionService.transactions$.subscribe({
+      next: (t) => (this.transactions = t),
+      error: (err) => {
+        console.error('Failed to load transactions:', err);
+      },
+    });
     this.destroyRef.onDestroy(() => subscription?.unsubscribe());
   }
 

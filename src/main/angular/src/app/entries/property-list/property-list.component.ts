@@ -11,7 +11,6 @@ import { PropertyComponent } from '../property/property.component';
 })
 export class PropertyListComponent {
   propertyService = inject(PropertyService);
-  selectedPropertyId?: string;
 
   getProperties() {
     return this.propertyService.getAll();

@@ -2,15 +2,13 @@ import { DestroyRef, Injectable, inject } from '@angular/core';
 import { Transaction, TransactionFilter } from './data.model';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { PropertyService } from './property.service';
 
 @Injectable({ providedIn: 'root' })
 export class TransactionService {
   private apiUrl = 'http://localhost:8080/api';
-  private transactionsSubject = new BehaviorSubject<Transaction[]>([]);
+  transactions$ = new BehaviorSubject<Transaction[]>([]);
 
   private destroyRef = inject(DestroyRef);
-  private propertyService = inject(PropertyService);
 
   constructor(private http: HttpClient) {
     this.loadAllTransactions();
@@ -29,7 +27,7 @@ export class TransactionService {
     const subscription = this.http
       .get<Transaction[]>(`${this.apiUrl}/transactions`)
       .subscribe({
-        next: (transactions) => this.transactionsSubject.next(transactions),
+        next: (transactions) => this.transactions$.next(transactions),
         error: (err) => {
           console.error('Failed to load transactions:', err);
         },
@@ -40,7 +38,7 @@ export class TransactionService {
   filterTransactions(filter: TransactionFilter): Observable<Transaction[]> {
     return this.http
       .post<Transaction[]>(`${this.apiUrl}/filter-transactions`, filter)
-      .pipe(tap((transactions) => this.transactionsSubject.next(transactions)));
+      .pipe(tap((transactions) => this.transactions$.next(transactions)));
   }
 
   deleteTransaction(id: number): Observable<any> {
@@ -51,10 +49,6 @@ export class TransactionService {
 
   updateTransaction(id: number, transaction: Transaction): Observable<any> {
     return this.http.put(`${this.apiUrl}/transactions/${id}`, transaction);
-  }
-
-  getTransactionsObservable(): Observable<Transaction[]> {
-    return this.transactionsSubject.asObservable();
   }
 }
 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Option } from '../../shared/data.model';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-option',
