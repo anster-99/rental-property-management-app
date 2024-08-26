@@ -24,6 +24,11 @@ export interface Transaction {
   dateModified?: string;
 }
 
+export interface TransactionDelta {
+  comment?: string;
+  amount?: number;
+}
+
 export interface TransactionFilter {
   propertyId: string | undefined;
   category: string | undefined;

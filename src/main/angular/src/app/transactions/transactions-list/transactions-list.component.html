@@ -31,7 +31,12 @@
   </ng-container>
   <ng-container matColumnDef="amount">
     <th mat-header-cell *matHeaderCellDef>Amount</th>
-    <td mat-cell *matCellDef="let transaction" contenteditable="true">
+    <td
+      mat-cell
+      *matCellDef="let transaction"
+      contenteditable="true"
+      (input)="onAmountChange(transaction.transactionId, $event)"
+    >
       {{ transaction.amount | currency : "CAD" }}
     </td>
   </ng-container>
@@ -43,11 +48,24 @@
   </ng-container>
   <ng-container matColumnDef="comment">
     <th mat-header-cell *matHeaderCellDef>Comment</th>
-    <td mat-cell *matCellDef="let transaction">{{ transaction.comment }}</td>
+    <td
+      mat-cell
+      *matCellDef="let transaction"
+      contenteditable="true"
+      (input)="onCommentChange(transaction.transactionId, $event)"
+    >
+      {{ transaction.comment }}
+    </td>
   </ng-container>
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Actions</th>
     <td mat-cell *matCellDef="let transaction">
+      @if(hasChanges(transaction.transactionId) | async) {
+      <button class="icon-button">
+        <img src="assets/check.png" alt="Save" (click)="onSave(transaction)" />
+      </button>
+      }
+
       <button class="icon-button" (click)="delete(transaction.transactionId)">
         <img src="assets/trash-bin.png" alt="Delete" />
       </button>
