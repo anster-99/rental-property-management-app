@@ -29,9 +29,10 @@ The Rental Property Management App is a web application designed to help users m
 <img width="974" alt="expenses" src="https://github.com/user-attachments/assets/241fa7a7-fc01-42e5-b79d-18aece20febb">
 <img width="974" alt="income" src="https://github.com/user-attachments/assets/71256d15-d4cc-4f56-ad95-7e50f600c35e">
 <img width="977" alt="input-form" src="https://github.com/user-attachments/assets/63376e6a-8adf-4b0b-bf13-8325f6cd362b">
-<img width="974" alt="transactions-list" src="https://github.com/user-attachments/assets/ceea280a-51b3-4f72-afcd-593ea987eda6">
-<img width="975" alt="transaction-modify" src="https://github.com/user-attachments/assets/147127b7-2bd8-4046-b3ee-e991033683a2">
-<img width="975" alt="transactions-list-filter" src="https://github.com/user-attachments/assets/7ba8ed59-4e4f-4f26-ba6d-cc908d5cf442">
+<img width="974" alt="transactions list" src="https://github.com/user-attachments/assets/dc287c73-112f-4045-9384-e07169f1a829">
+<img width="974" alt="transactions list pagination change" src="https://github.com/user-attachments/assets/90817a47-a085-45d9-8183-94dd9269c5a6">
+<img width="974" alt="transactions list modify" src="https://github.com/user-attachments/assets/1a6d4a6f-e50c-43db-a5cd-40ed6b26b324">
+<img width="974" alt="transaction list filter" src="https://github.com/user-attachments/assets/7948af86-72a0-4d23-968b-1da7b5b93808">
 
 ## Limitations
 * This application is not production-ready. It was developed as a learning project during an Angular course.
